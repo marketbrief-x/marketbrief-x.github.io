@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>MarketBrief – Privacy Policy & Disclaimer</title>
+    <title>MarketBrief – Privacy Policy & Support</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
@@ -38,46 +38,114 @@
             border-top: 1px solid #e5e7eb;
             margin: 2.5rem 0;
         }
+        /* Tabs styles */
+        .tabs {
+            display: flex;
+            margin-bottom: 32px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        .tab {
+            padding: 12px 24px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #6b7280;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s ease;
+        }
+        .tab.active {
+            color: #111827;
+            border-bottom-color: #3b82f6;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        a {
+            color: #3b82f6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 <div class="container">
 
-<h1>Privacy Policy</h1>
+    <div class="tabs">
+        <div class="tab active" data-tab="privacy">Privacy Policy</div>
+        <div class="tab" data-tab="support">Support</div>
+    </div>
 
-<p><strong>MarketBrief</strong> does not collect, store, process, or share any personal data.</p>
+    <!-- Privacy Policy Tab -->
+    <div id="privacy" class="tab-content active">
+        <h1>Privacy Policy</h1>
 
-<p>All stock and market data is retrieved anonymously from third-party data providers. No personally identifiable information is transmitted, stored, or retained by the app.</p>
+        <p><strong>MarketBrief</strong> does not collect, store, process, or share any personal data.</p>
 
-<h2>Data Collection & Tracking</h2>
-<p>MarketBrief does not require user accounts and does not use cookies, analytics tools, advertising SDKs, or tracking technologies.</p>
+        <p>All stock and market data is retrieved anonymously from third-party data providers. No personally identifiable information is transmitted, stored, or retained by the app.</p>
 
-<h2>Third-Party Services</h2>
-<p>Market data may be sourced from external providers. These providers operate independently and may be subject to their own privacy policies and terms.</p>
+        <h2>Data Collection & Tracking</h2>
+        <p>MarketBrief does not require user accounts and does not use cookies, analytics tools, advertising SDKs, or tracking technologies.</p>
 
-<h2>Children’s Privacy</h2>
-<p>MarketBrief does not knowingly collect personal information from children under the age of 13.</p>
+        <h2>Third-Party Services</h2>
+        <p>Market data may be sourced from external providers. These providers operate independently and may be subject to their own privacy policies and terms.</p>
 
-<hr>
+        <h2>Children’s Privacy</h2>
+        <p>MarketBrief does not knowingly collect personal information from children under the age of 13.</p>
 
-<h1>Financial Disclaimer</h1>
+        <hr>
 
-<p>MarketBrief provides market data and general financial information for informational and educational purposes only.</p>
+        <h1>Financial Disclaimer</h1>
 
-<p>The content provided does <strong>not</strong> constitute financial, investment, trading, or professional advice. MarketBrief is not a registered investment advisor, broker, or dealer.</p>
+        <p>MarketBrief provides market data and general financial information for informational and educational purposes only.</p>
 
-<p>Users are solely responsible for their investment decisions and should conduct their own research and consult a qualified financial advisor before making any financial decisions.</p>
+        <p>The content provided does <strong>not</strong> constitute financial, investment, trading, or professional advice. MarketBrief is not a registered investment advisor, broker, or dealer.</p>
 
-<h2>Limitation of Liability</h2>
-<p>MarketBrief shall not be held liable for any losses, damages, or decisions arising directly or indirectly from the use of the app or reliance on the information provided.</p>
+        <h2>Limitation of Liability</h2>
+        <p>MarketBrief shall not be held liable for any losses, damages, or decisions arising directly or indirectly from the use of the app or reliance on the information provided.</p>
 
-<h2>Changes to This Page</h2>
-<p>This policy may be updated from time to time. Any changes will be published on this page.</p>
+        <h2>Changes to This Page</h2>
+        <p>This policy may be updated from time to time. Any changes will be published on this page.</p>
+    </div>
 
-<footer>
-<p>Last updated: February 2026</p>
-</footer>
+    <!-- Support Tab -->
+    <div id="support" class="tab-content">
+        <h1>Support</h1>
+        <p>If you have questions, encounter issues, or need assistance with <strong>MarketBrief</strong>, we’re here to help.</p>
+
+        <h2>Contact</h2>
+        <p>Email us directly at: <a href="mailto:support@marketbriefapp.com">support@marketbriefapp.com</a></p>
+
+        <h2>Additional Help</h2>
+        <p>You can also visit our website for FAQs, guides, and updates: <a href="https://www.marketbriefapp.com">www.marketbriefapp.com</a></p>
+
+        <h2>Feedback</h2>
+        <p>We welcome your suggestions and feedback to help improve the app. Please reach out via email.</p>
+
+        <hr>
+        <footer>
+            <p>Last updated: February 2026</p>
+        </footer>
+    </div>
 
 </div>
+
+<script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            contents.forEach(c => c.classList.remove('active'));
+            document.getElementById(tab.dataset.tab).classList.add('active');
+        });
+    });
+</script>
 </body>
 </html>
